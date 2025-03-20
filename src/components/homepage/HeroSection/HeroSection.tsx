@@ -1,5 +1,4 @@
 import React from "react";
-import TaglineChange from "./TaglineChange";
 import Tray from "@components/layout/Tray";
 
 const HeroSectionHeading = () => {

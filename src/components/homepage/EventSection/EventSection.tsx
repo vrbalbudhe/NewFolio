@@ -24,7 +24,6 @@ export default function EventSection() {
           {EventsDict.map((events, index: number) => (
             <EventCard
               key={index}
-              image={events.image}
               title={events.title}
               location={events.location}
               info={events.info}

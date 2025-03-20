@@ -1,18 +1,12 @@
 import React from "react";
 
 interface EventCardProps {
-  image: string;
   title: string;
   location: string;
   info: string;
 }
 
-export default function EventCard({
-  image,
-  title,
-  location,
-  info,
-}: EventCardProps) {
+export default function EventCard({ title, location, info }: EventCardProps) {
   return (
     <div className="w-full md:hover:scale-105 transition-all duration-500 flex flex-col dark:bg-[#293241] bg-white md:w-[350px] md:min-h-[250px] shadow-md dark:border-none border rounded-md border-gray-200">
       <div className="h-2/3 p-5 flex flex-col gap-10 md:gap-3">
