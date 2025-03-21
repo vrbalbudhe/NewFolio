@@ -53,6 +53,10 @@ export default function ProjectPage() {
         {/* Project Card Heading */}
         <ProjectHeading title={data.title} info={data.info} />
 
+        {data.InstitutionName != "null" && (
+          <IsIndustrySponsered InstitutionName={data.InstitutionName} />
+        )}
+
         {/* GitHub & Website Links */}
         <ProjectInfoLinks githubRepo={data.githubRepo} website={data.website} />
 
@@ -70,13 +74,28 @@ export default function ProjectPage() {
   );
 }
 
+const IsIndustrySponsered: React.FC<{ InstitutionName: string }> = ({
+  InstitutionName,
+}) => {
+  return (
+    <div className="pb-5">
+      <p className="text-blue-500 dark:text-gray-500 bg-gray-200 rounded-lg px-2 py-1 -tracking-tight text-md font-medium">
+        <span className="text-gray-700 dark:text-gray-500">
+          Industry Sponsered :{" "}
+        </span>
+        {InstitutionName}
+      </p>
+    </div>
+  );
+};
+
 const ProjectFeatures: React.FC<{ features: string[] }> = ({ features }) => {
   return (
     <ul className="pt-5">
       {features.map((feature, index) => (
         <li
           key={index}
-          className="text-gray-700 dark:text-gray-500 -tracking-tight text-md font-medium flex justify-start items-center gap-2"
+          className="text-gray-700 dark:text-gray-500 tracking-tight text-md font-medium flex justify-start items-center gap-4"
         >
           <span className="dark:text-gray-500 text-gray-700 inline-block">
             <CircleSmall size={20} />
@@ -93,8 +112,8 @@ const ProjectHeading: React.FC<{ title: string; info: string }> = ({
   info,
 }) => {
   return (
-    <div className="w-full min-h-fit pt-10 pb-10 flex flex-col justify-center items-start gap-2">
-      <h1 className="font-medium tracking-tight text-6xl text-gray-500 dark:text-gray-400">
+    <div className="w-full min-h-fit pt-10 pb-5 flex flex-col justify-center items-start gap-5">
+      <h1 className="font-medium tracking-tight text-6xl text-gray-700 dark:text-gray-400">
         {title}
       </h1>
       <h1 className="font-medium tracking-tighter text-xl text-gray-600">
@@ -125,11 +144,11 @@ const CardImageSection: React.FC<{ images: (string | StaticImageData)[] }> = ({
   images,
 }) => {
   return (
-    <div className="w-full pt-10 pb-10 flex flex-wrap gap-2">
+    <div className="w-full dark:bg-inherit md:p-5 mt-10 flex flex-wrap gap-3 rounded-lg">
       {images.map((image, index) => (
         <Image
           key={index}
-          className="h-auto w-auto rounded-sm object-cover"
+          className="h-auto w-auto rounded-sm border border-gray-100 dark:border-none md:hover:scale-95 transition-all duration-500 shadow-sm object-cover"
           src={typeof image === "string" ? image : image.src}
           alt={`Project Image ${index + 1}`}
           width={300}
@@ -151,9 +170,11 @@ const ProjectInfoLinks: React.FC<{ githubRepo: string; website: string }> = ({
         href={githubRepo}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 text-sm font-medium dark:text-gray-400 text-gray-700 underline cursor-pointer"
+        className="flex items-center gap-4 text-sm font-medium dark:text-gray-400 text-gray-700 underline cursor-pointer"
       >
-        <Flag size={14} strokeWidth={2} color="white" />
+        <span className="text-gray-700 dark:text-gray-400">
+          <Flag size={18} strokeWidth={2} />
+        </span>
         GitHub Repository
       </a>
 
@@ -162,9 +183,11 @@ const ProjectInfoLinks: React.FC<{ githubRepo: string; website: string }> = ({
           href={website}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sm font-medium dark:text-gray-400 text-gray-700 underline cursor-pointer"
+          className="flex items-center gap-4 text-sm font-medium dark:text-gray-400 text-gray-700 underline cursor-pointer"
         >
-          <SquareArrowOutUpRight size={14} strokeWidth={1} color="white" />
+          <span className="text-gray-700 dark:text-gray-400">
+            <SquareArrowOutUpRight size={18} strokeWidth={2} />
+          </span>
           Visit Website
         </a>
       )}
