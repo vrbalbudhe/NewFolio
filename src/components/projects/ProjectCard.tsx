@@ -18,7 +18,9 @@ const CardMainSection: React.FC<{ title: string; info: string }> = ({
   return (
     <div className="w-full min-h-fit flex flex-col gap-2">
       <h1 className="font-medium dark:text-gray-200 text-gray-700">{title}</h1>
-      <p className="font-medium text-sm text-balance dark:text-gray-400 text-gray-600">{info}</p>
+      <p className="font-medium text-sm text-balance dark:text-gray-400 text-gray-600">
+        {info}
+      </p>
     </div>
   );
 };
@@ -51,7 +53,7 @@ export default function ProjectCard({
 
   return (
     <Link href={`/projects/${uniqueId}`} className="no-underline">
-      <div className="w-[400px] h-[450px] bg-white dark:bg-[#293241] dark:border-none border-2 border-gray-200 shadow-md rounded-md overflow-hidden">
+      <div className="w-full md:w-[400px] h-[450px] bg-white dark:bg-[#293241] dark:border-none border-2 border-gray-200 shadow-md rounded-md overflow-hidden">
         <Image
           className="rounded-t-md h-2/5 object-cover"
           src={imageUrl}
