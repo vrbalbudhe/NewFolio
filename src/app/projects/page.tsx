@@ -1,9 +1,10 @@
 import ProjectCard from "../../components/projects/ProjectCard";
+import ProjectDict from "../../components/projects/ProjectDict";
 import React from "react";
 
 const SectionHeading = () => {
   return (
-    <div className="w-full h-[200px] flex flex-col justify-center items-center bg-[#f7f7ff] gap-2">
+    <div className="w-full h-[200px] flex flex-col justify-center items-start dark:bg-[#00111c] gap-2">
       <h1 className="text-5xl md:text-6xl text-left md:text-center font-normal md:font-medium break-words text-gray-700 dark:text-gray-500 tracking-tight">
         Projects Archives
       </h1>
@@ -16,12 +17,26 @@ const SectionHeading = () => {
 
 export default function page() {
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col justify-center items-center">
+    <div className="w-full min-h-screen dark:bg-[#00111c] bg-white flex flex-col justify-center items-center">
+      <div className="w-[90%] min-h-screen bg-inherit items-start flex-wrap flex gap-5 justify-start md:p-5 pt-20 pb-10">
       {SectionHeading()}
-      <div className="w-[90%] min-h-screen bg-white items-start flex-wrap flex gap-5 justify-start md:p-5 pt-20 pb-10">
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        {ProjectDict.map((project, index) => (
+          <ProjectCard
+            key={index}
+            landingImage={project.landingImage}
+            uniqueId={project.uniqueId}
+            title={project.title}
+            info={project.info}
+            image={
+              project.image.length > 0
+                ? typeof project.image[0] === "string"
+                  ? project.image[0]
+                  : project.image[0].src
+                : "https://m.media-amazon.com/images/I/51Jeu+ot7EL._AC_UF1000,1000_QL80_.jpg"
+            }
+            tags={project.tags}
+          />
+        ))}
       </div>
     </div>
   );
