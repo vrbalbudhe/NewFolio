@@ -180,6 +180,7 @@ const ProjectDict = [
             BSPJWD_Img1,
             BSPJWD_Img4,
             BSPJWD_Img3,
+            BSPJWD_Img5,
         ],
         InstitutionName: "null",
         githubRepo: "https://github.com/vrbalbudhe/TheBoringStore",

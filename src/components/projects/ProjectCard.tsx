@@ -36,14 +36,14 @@ const CardTagsSection: React.FC<{ tags: string[] }> = ({ tags }) => {
       {visibleTags.map((tag, index) => (
         <div
           key={index}
-          className="w-fit px-3 py-1.5 bg-[#293241] dark:bg-[#00111c] rounded-md"
+          className="w-fit px-3 py-1.5 bg-[#a3bded] dark:bg-[#3a6ea5] rounded-md"
         >
-          <p className="text-gray-300 text-sm">{tag}</p>
+          <p className="text-white font-semibold -tracking-tighter text-sm">{tag}</p>
         </div>
       ))}
       {extraCount > 0 && (
-        <div className="w-fit px-3 py-1.5 bg-[#293241] dark:bg-[#00111c] rounded-md">
-          <p className="text-gray-300 text-sm">+{extraCount} more</p>
+        <div className="w-fit px-3 py-1.5 bg-[#a3bded] dark:bg-[#00111c] rounded-md">
+          <p className="text-white font-semibold -tracking-tighter text-sm">+{extraCount} more</p>
         </div>
       )}
     </div>
@@ -64,7 +64,7 @@ export default function ProjectCard({
   return (
     <Link href={`/projects/${uniqueId}`} className="no-underline">
       <div
-        className={`w-full md:w-[400px] pb-10 min-h-[450px] md:h-[420px] bg-white dark:bg-[#293241] dark:border-none border border-gray-200 shadow-sm rounded-sm overflow-hidden`}
+        className={`w-full md:w-[400px] pb-10 min-h-[450px] md:h-[420px] bg-white dark:bg-[#2b2d42] dark:border-none border border-gray-200 shadow-sm rounded-sm overflow-hidden`}
       >
         <Image
           className="rounded-t-sm h-2/5 object-cover"

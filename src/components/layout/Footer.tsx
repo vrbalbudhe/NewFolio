@@ -40,7 +40,7 @@ const SocialNavTray = () => {
 
 export default function Footer() {
   return (
-    <div className="w-full h-full md:h-28 pb-10 pt-10 md:pt-0 md:pb-0 dark:bg-[#293241] bg-[#f7f7ff] flex justify-center items-center">
+    <div className="w-full h-full md:h-28 pb-10 pt-10 md:pt-0 md:pb-0 dark:bg-[#293241] bg-[#eef1f5] flex justify-center items-center">
       <div className="w-[90%] h-full flex md:flex-row flex-col-reverse justify-between items-center gap-10 md:gap-0">
         <div className="w-full md:w-1/2">{WebsiteAuthorDesignation()}</div>
         <div className="w-full md:w-1/2 flex md:flex-row flex-col justify-center gap-5 md:gap-0 md:justify-between items-center">
