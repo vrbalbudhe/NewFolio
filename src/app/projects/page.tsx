@@ -5,10 +5,10 @@ import React from "react";
 const SectionHeading = () => {
   return (
     <div className="w-full h-[200px] md:h-[150px] md:mb-5 flex flex-col justify-center md:justify-end items-start dark:bg-[#00111c] gap-2">
-      <p className="text-5xl break-words text-gray-700 dark:text-gray-500 tracking-tight">
+      <p className="text-5xl select-none break-words text-gray-700 dark:text-gray-500 tracking-tight">
         Projects Archives
       </p>
-      <h1 className="text-sm md:text-xl text-left md:text-center font-medium break-words text-gray-500 tracking-tight">
+      <h1 className="text-sm md:text-xl select-none text-left md:text-center font-medium break-words text-gray-500 tracking-tight">
         All the Web, App Development and Blockchain Projects
       </h1>
     </div>

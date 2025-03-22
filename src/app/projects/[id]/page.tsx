@@ -5,6 +5,7 @@ import ProjectDict from "../../../components/projects/ProjectDict";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { CircleSmall, Flag, SquareArrowOutUpRight } from "lucide-react";
+import heroimage from "../../../assets/project/HeroImages/NXTHREADS(1).png";
 
 type Project = {
   uniqueId: string;
@@ -48,11 +49,15 @@ export default function ProjectPage() {
   }
 
   return (
-    <div className="w-full min-h-screen flex justify-center items-center dark:bg-[#00111c] bg-white">
+    <div className="w-full min-h-screen flex  flex-col justify-center items-center dark:bg-[#00111c] bg-white">
       <div className="w-[90%] min-h-screen flex flex-col justify-start items-start p-4">
+        {/* Hero Section */}
+        {data.uniqueId === "NXTSPPJWD" && <HeroSection image={heroimage} />}
+
         {/* Project Card Heading */}
         <ProjectHeading title={data.title} info={data.info} />
 
+        {/* Institutional Names */}
         {data.InstitutionName != "null" && (
           <IsIndustrySponsered InstitutionName={data.InstitutionName} />
         )}
@@ -63,6 +68,7 @@ export default function ProjectPage() {
         {/* Tags Section */}
         <CardTagsSection tags={data.tags} />
 
+        {/* Project Features */}
         <ProjectFeatures features={data.features} />
 
         {/* Image Section */}
@@ -79,7 +85,7 @@ const IsIndustrySponsered: React.FC<{ InstitutionName: string }> = ({
 }) => {
   return (
     <div className="pb-5">
-      <p className="text-blue-500 dark:text-gray-500 bg-gray-200 rounded-lg px-2 py-1 -tracking-tight text-md font-medium">
+      <p className="text-blue-500 select-none dark:text-gray-500 bg-gray-200 rounded-lg px-2 py-1 -tracking-tight text-md font-medium">
         <span className="text-gray-700 dark:text-gray-500">
           Industry Sponsered :{" "}
         </span>
@@ -95,7 +101,7 @@ const ProjectFeatures: React.FC<{ features: string[] }> = ({ features }) => {
       {features.map((feature, index) => (
         <li
           key={index}
-          className="text-gray-700 dark:text-gray-500 tracking-tight text-md font-medium flex justify-start items-center gap-4"
+          className="text-gray-700 select-none dark:text-gray-500 tracking-tight text-md font-medium flex justify-start items-center gap-4"
         >
           <span className="dark:text-gray-500 text-gray-700 inline-block">
             <CircleSmall size={20} />
@@ -113,10 +119,10 @@ const ProjectHeading: React.FC<{ title: string; info: string }> = ({
 }) => {
   return (
     <div className="w-full min-h-fit pt-10 pb-5 flex flex-col justify-center items-start gap-5">
-      <h1 className="font-medium tracking-tight text-6xl text-gray-700 dark:text-gray-400">
+      <h1 className="font-medium select-none tracking-tight text-6xl text-gray-700 dark:text-gray-400">
         {title}
       </h1>
-      <h1 className="font-medium tracking-tighter text-xl text-gray-600">
+      <h1 className="font-medium select-none tracking-tighter text-xl text-gray-600">
         {info}
       </h1>
     </div>
@@ -129,9 +135,9 @@ const CardTagsSection: React.FC<{ tags: string[] }> = ({ tags }) => {
       {tags.map((tag, index) => (
         <div
           key={index}
-          className="w-fit px-2 py-1 bg-gray-800 dark:bg-[#293241] rounded-sm"
+          className="w-fit px-3 py-2 bg-gray-800 dark:bg-[#293241] rounded-xs"
         >
-          <p className="text-gray-300 dark:text-gray-100 -tracking-tight text-sm">
+          <p className="text-gray-300 select-none dark:text-gray-100 -tracking-tight text-sm">
             {tag}
           </p>
         </div>
@@ -148,7 +154,7 @@ const CardImageSection: React.FC<{ images: (string | StaticImageData)[] }> = ({
       {images.map((image, index) => (
         <Image
           key={index}
-          className="h-auto w-auto rounded-sm border border-gray-100 dark:border-none md:hover:scale-95 transition-all duration-500 shadow-sm object-cover"
+          className="h-auto w-auto rounded-sm pointer-events-auto select-none border border-gray-100 dark:border-none md:hover:scale-95 transition-all duration-500 shadow-sm object-cover"
           src={typeof image === "string" ? image : image.src}
           alt={`Project Image ${index + 1}`}
           width={300}
@@ -157,6 +163,18 @@ const CardImageSection: React.FC<{ images: (string | StaticImageData)[] }> = ({
         />
       ))}
     </div>
+  );
+};
+
+const HeroSection: React.FC<{
+  image: string | StaticImageData;
+}> = ({ image }) => {
+  return (
+    <img
+      className="w-full h-60 rounded-xl select-none pointer-events-none border-gray-100 dark:border-none object-contain"
+      src={typeof image === "string" ? image : image.src}
+      alt="Project Image"
+    />
   );
 };
 
@@ -170,7 +188,7 @@ const ProjectInfoLinks: React.FC<{ githubRepo: string; website: string }> = ({
         href={githubRepo}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-4 text-sm font-medium dark:text-gray-400 text-gray-700 underline cursor-pointer"
+        className="flex items-center select-none gap-4 text-sm font-medium dark:text-gray-400 text-gray-700 underline cursor-pointer"
       >
         <span className="text-gray-700 dark:text-gray-400">
           <Flag size={18} strokeWidth={2} />
@@ -185,7 +203,7 @@ const ProjectInfoLinks: React.FC<{ githubRepo: string; website: string }> = ({
           rel="noopener noreferrer"
           className="flex items-center gap-4 text-sm font-medium dark:text-gray-400 text-gray-700 underline cursor-pointer"
         >
-          <span className="text-gray-700 dark:text-gray-400">
+          <span className="text-gray-700 select-none dark:text-gray-400">
             <SquareArrowOutUpRight size={18} strokeWidth={2} />
           </span>
           Visit Website

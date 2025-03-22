@@ -8,25 +8,29 @@ import {
   InstagramIcon,
 } from "lucide-react";
 
-const Tray = () => {
+const Tray: React.FC<{}> = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
       icon: LinkedinIcon,
-      url: "https://www.linkedin.com/in/yourprofile",
+      url: "www.linkedin.com/in/varun-balbudhe-67b516256",
     },
     {
       name: "Instagram",
       icon: InstagramIcon,
-      url: "https://www.instagram.com/yourprofile",
+      url: "https://www.instagram.com/vruunnn_",
     },
-    { name: "GitHub", icon: GithubIcon, url: "https://github.com/yourprofile" },
+    { name: "GitHub", icon: GithubIcon, url: "https://github.com/vrbalbudhe" },
+    // {
+    //   name: "Twitter",
+    //   icon: TwitterIcon,
+    //   url: "https://twitter.com/yourprofile",
+    // },
     {
-      name: "Twitter",
-      icon: TwitterIcon,
-      url: "https://twitter.com/yourprofile",
+      name: "Website",
+      icon: GlobeIcon,
+      url: "https://vrbresume.vercel.app/projects",
     },
-    { name: "Website", icon: GlobeIcon, url: "https://yourwebsite.com" },
   ];
 
   return (
@@ -37,9 +41,9 @@ const Tray = () => {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className=" rounded-full text-gray-700 dark:text-gray-500 hover:bg-gray-700 transition-all"
+          className=" rounded-full text-gray-700 dark:text-gray-500 hover:text-gray-500 transition-all"
         >
-          <Icon size={24} />
+          <Icon size={24} strokeWidth={1.2} />
         </a>
       ))}
     </div>

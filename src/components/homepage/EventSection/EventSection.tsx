@@ -5,10 +5,10 @@ import EventsDict from "./EventsDicts";
 const SectionHeading = () => {
   return (
     <div className="w-full h-fit flex flex-col gap-2">
-      <h1 className="text-5xl md:text-6xl text-left md:text-center font-normal md:font-medium break-words text-gray-700 dark:text-gray-500 tracking-tight">
+      <h1 className="text-5xl pointer-events-none select-none md:text-6xl text-left md:text-center font-normal md:font-medium break-words text-gray-700 dark:text-gray-500 tracking-tight">
         Highlighted Events
       </h1>
-      <h1 className="text-sm md:text-xl text-left md:text-center font-medium break-words text-gray-500 tracking-tight">
+      <h1 className="text-sm pointer-events-none select-none md:text-xl text-left md:text-center font-medium break-words text-gray-500 tracking-tight">
         All the Hackathons and Tech Events i had Witnesed!
       </h1>
     </div>
